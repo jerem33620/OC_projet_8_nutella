@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.urls import reverse
 
-from users.forms import ConnexionForm, SignUpForm
+from .forms import ConnexionForm, SignUpForm
 import requests
 
 
