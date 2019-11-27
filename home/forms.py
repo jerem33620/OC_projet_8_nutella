@@ -7,14 +7,15 @@ class ConnexionForm(forms.Form):
     username = forms.CharField(label="Nom d'utilisateur", max_length=20)
     password = forms.CharField(label="Mot de passe", widget=forms.PasswordInput, min_length=6, max_length=16)
 
-class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+class SearchForm(forms.Form):
+    product = forms.CharField(
+        max_length=100, 
+        widget=forms.TextInput(attrs={'placeholder': "Champ de recherche pour les produits"})
+)
+
+class SingupForm(UserCreationForm):
+    email = forms.CharField(label="email")
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
-
-class search(forms.Form):
-    question = forms.CharField(max_length=100)
+        fields = ("username", "password1", "password2")
