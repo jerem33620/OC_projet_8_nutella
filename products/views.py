@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+from home.forms import SearchForm
+
+
 def research(request):
     form = SearchForm(request.GET or None)
 
