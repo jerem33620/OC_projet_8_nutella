@@ -10,7 +10,7 @@ class ConnexionForm(forms.Form):
 class SearchForm(forms.Form):
     product = forms.CharField(
         max_length=100, 
-        widget=forms.TextInput(attrs={'placeholder': "Champ de recherche pour les produits"})
+        widget=forms.TextInput(attrs={'placeholder': "Champs de recherche"})
 )
 
 class SingupForm(UserCreationForm):

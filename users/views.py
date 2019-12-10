@@ -41,11 +41,12 @@ def signup(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
+            email = form.cleaned_data.get('email')
+            user = User.objects.create_user(username=username, email=email, password=raw_password)
             login(request, user)
+            user.save()
             return redirect('home')
     else:
         form = SingupForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'signup.html', {'form': form}) 
