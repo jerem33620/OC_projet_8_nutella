@@ -2,4 +2,12 @@
 
 {% block content %}
 
+{% for substitute in substitutes %}
+    <div class="product-result">
+        {{ substitute.product_name }}, {{ substitute.nutrition_grade_fr }}
+    </div>
+{% empty %}
+    <div class="product-noresult">Désolé, aucun produit n'a été trouvé</div>
+{% endfor %}
+
 {% endblock %}

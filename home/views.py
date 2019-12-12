@@ -6,4 +6,6 @@ from .forms import SearchForm
 
 def home(request):
     form = SearchForm()
-    return render(request, 'home.html', {"form":form})
+    return render(request, 'home.html', {
+        "form":form
+    })
