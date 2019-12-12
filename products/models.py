@@ -1,9 +1,13 @@
 from django.db import models
 
+from .managers import ProductManager
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     code = models.BigIntegerField(primary_key=True)
@@ -15,3 +19,8 @@ class Product(models.Model):
     category = models.ForeignKey(
         "Category", on_delete=models.CASCADE, related_name="products"
     )
+
+    def __str__(self):
+        return self.product_name
+
+    objects = ProductManager()
