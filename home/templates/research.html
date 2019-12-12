@@ -4,7 +4,8 @@
 
 {% for substitute in substitutes %}
     <div class="product-result">
-        {{ substitute.product_name }}, {{ substitute.nutrition_grade_fr }}
+        {{ substitute.product_name }}, {{ substitute.nutrition_grade_fr }},
+        <img src="{{ substitute.image_url }}"/>
     </div>
 {% empty %}
     <div class="product-noresult">Désolé, aucun produit n'a été trouvé</div>

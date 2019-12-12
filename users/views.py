@@ -7,7 +7,7 @@ from home.forms import ConnexionForm, SearchForm, SingupForm
 from .models import User
 
 def login(request):
-    """Pour pouvoir se connecter"""
+    """ Cette fonction sert à se connecter sur le site """
     error = False
 
     if request.method == "POST":
@@ -32,10 +32,12 @@ def login(request):
     return render(request, 'login.html', context)
 
 def logout(request):
+    """ Cette méthode sert à se déconnecter """
     auth.logout(request)
     return redirect("home")
 
 def signup(request):
+    """ Cette méthode sert à s'enregistrer """
     if request.method == 'POST':
         form = SingupForm(request.POST)
         if form.is_valid():

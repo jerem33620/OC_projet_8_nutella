@@ -2,7 +2,8 @@ from django.db import models
 
 
 class ProductManager(models.Manager):
-    def find_substitutes(self, form):
+    """ Cette class sert à appelé les produits lors de la recherche sur le site """
+    def find_products(self, form):
         from .models import Product
 
         substitutes = []
@@ -12,10 +13,12 @@ class ProductManager(models.Manager):
             product = products[0]
             category = product.category
             nutrition_grade_fr = product.nutrition_grade_fr
+            image_url = product.image_url
             substitutes = list(
                 Product.objects.filter(
                     category=product.category, 
-                    nutrition_grade_fr__lt=product.nutrition_grade_fr
+                    nutrition_grade_fr__lt=product.nutrition_grade_fr,
+                    image_url=product.image_url
                 )
             )
         return substitutes

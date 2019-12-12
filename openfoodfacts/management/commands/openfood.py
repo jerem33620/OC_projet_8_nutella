@@ -9,10 +9,11 @@ from openfoodfacts.utils import get_json
 
 class Command(BaseCommand):
     help = (
-        "Downloads products from openfoodfacts and saves products in database"
+        "Télécharge les produits à partir d’Openfoodfacts et les sauvegardes dans la base de données"
     )
 
     def handle(self, *args, **options):
+        """ Cette méthode sert à appelé tous ce qu'il nous faudra pour la DB """
         self.codes=set()
         self.delete_all()
         for category in settings.OPENFOODFACTS_CATEGORIES:
@@ -33,9 +34,13 @@ class Command(BaseCommand):
             )  # 3. Sauvegarder les produits dans la base
 
     def save_category(self, category):
+        """ cette méthode sert à sauvegarder dans la DB les catégories """
         return Category.objects.get_or_create(name=category.lower())
 
     def save_products_by_category(self, category, products):
+        """ Cette méthode sert à sauvegarder dans la DB les données vouluent:
+            code/product_name/nutrition_grade_fr/url/image_url/image_nutrition_url
+        """
         for product in products:
             self.stdout.write(str(product["product_name"]))
             if product["code"] not in self.codes:
@@ -51,8 +56,9 @@ class Command(BaseCommand):
                 )
 
     def _is_valid(self, product):
-        """Vérifier que toutes les infos nécessaires sont présentes dans le 
-        dictionnaire product."""
+        """ Cette méthode sert à vérifier que toutes les infos nécessaires,
+            sont présentes dans le dictionnaire product.
+        """
         keys = ("code", "product_name", "nutrition_grade_fr",
                 "url", "image_url", "image_nutrition_url")
         for key in keys:
@@ -61,6 +67,7 @@ class Command(BaseCommand):
         return True
 
     def clean_products(self, products):
+        """ Cette méthode sert à supprimé et vérifier les produits """
         cleaned_products = []
 
         for product in products:
@@ -70,5 +77,6 @@ class Command(BaseCommand):
         return cleaned_products
 
     def delete_all(self):
+        """ Cette méthode sert à supprimer les tables Product et Category """
         Product.objects.all().delete()
         Category.objects.all().delete()

@@ -3,8 +3,9 @@ import requests
     
 def get_json(category):
     """ Cette méthode produit la requête, 
-    soumet une requête à la bibliothéque
-    et retourne un json avec les valeurs rendues """
+        soumet une requête à la bibliothéque
+        et retourne un json avec les valeurs rendues
+    """
 
     base_url = 'https://fr.openfoodfacts.org/cgi/search.pl'
 
