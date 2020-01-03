@@ -2,11 +2,11 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from products.models import Product
 from django.conf import settings
-
+from django.contrib.auth.models import UserManager
 
 class User(AbstractUser):
     """ Cette class sert à utiliser AbstractUser pour obtenir tous ce qu'il nous faut pour un utilisateur """
-    pass
+    objects = UserManager()
 
 class Favorite(models.Model):
     """ Cette class sert à avoir une table de favoris pour enregistrer
