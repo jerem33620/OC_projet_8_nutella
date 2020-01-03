@@ -10,5 +10,8 @@ def research(request):
     if request.method == "GET":
         form = SearchForm(request.GET or None)
         if form.is_valid():
-            substitutes = Product.objects.find_products(form)
-    return render(request, "research.html", {"substitutes": substitutes})
+            substitutes, product = Product.objects.find_products(form)
+    return render(request, "research.html", {"substitutes": substitutes, "product": product})
+
+def product_info(request, code):
+    code = Product.objects.get(code)

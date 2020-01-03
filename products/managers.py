@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class ProductManager(models.Manager):
@@ -7,18 +8,15 @@ class ProductManager(models.Manager):
         from .models import Product
 
         substitutes = []
+        product = None
         searched_name = form.cleaned_data["product"]
         products = Product.objects.filter(product_name__icontains=searched_name)
         if products:
             product = products[0]
-            category = product.category
-            nutrition_grade_fr = product.nutrition_grade_fr
-            image_url = product.image_url
             substitutes = list(
                 Product.objects.filter(
                     category=product.category, 
                     nutrition_grade_fr__lt=product.nutrition_grade_fr,
-                    image_url=product.image_url
-                )
+                )[:settings.MAX_RESULT]
             )
-        return substitutes
+        return substitutes, product
