@@ -4,11 +4,12 @@
 
 {% for substitute in substitutes %}
     <div class="product-result">
-        {{ substitute.product_name }}, {{ substitute.nutrition_grade_fr }},
-        <img src="{{ substitute.image_url }}"/>
+        <a href="{% url 'product_info' substitute.code %}">{{ substitute.product_name }}</a>, {{ substitute.nutrition_grade_fr }},
+        <img src="{{ substitute.image_url }}" width="100" height="100">
     </div>
 {% empty %}
     <div class="product-noresult">Désolé, aucun produit n'a été trouvé</div>
 {% endfor %}
+
 
 {% endblock %}
