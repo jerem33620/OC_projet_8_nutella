@@ -22,7 +22,8 @@ def login(request):
                 context = {
                     "user": request.user,
                 }
-                return redirect("home")
+                next = request.GET.get("next", "home")
+                return redirect(next)
             else: # sinon une erreur sera affichée
                 error = True
     else:
