@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Bienvenue, {{ user.get_full_name }} <small>{{ user.username }}</small>!</h2>
-  <p>Votre adresse email: {{ user.email }}</p>
+    <h2>Bienvenue, {{ user.get_full_name }} <small>{{ user.username }}</small>!</h2>
+    <p>Votre adresse email: {{ user.email }}</p>
 
-  {% if envoi %}Vois-ci votre résultat: {% endif %}
+    {% if envoi %}Vois-ci votre résultat: {% endif %}
 
-  <form action="{% url 'research' %}" method="get">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Envoyer</button>
-  </form>
+    <form action="{% url 'research' %}" method="get">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Envoyer</button>
+    </form>
 {% endblock %}
