@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'favorites.apps.FavoritesConfig',
     'users.apps.UsersConfig',
     'products.apps.ProductsConfig',
     'openfoodfacts.apps.OpenfoodfactsConfig',
@@ -149,3 +150,5 @@ OPENFOODFACTS_CATEGORIES = [
 AUTH_USER_MODEL = "users.User"
 
 MAX_RESULT = 6
+
+LOGIN_URL = "/users/login"
