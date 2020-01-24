@@ -152,3 +152,5 @@ AUTH_USER_MODEL = "users.User"
 MAX_RESULT = 6
 
 LOGIN_URL = "/users/login"
+
+STATIC_URL = "/home/static/"
