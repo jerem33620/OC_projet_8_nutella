@@ -16,7 +16,7 @@ def research(request):
 
 def product_info(request, code):
     product = Product.objects.get(code=code)
-
+    product.image_url = product.image_url.replace("400", "full")
     return render(request, "product_info.html", {
         "product": product,
     })
