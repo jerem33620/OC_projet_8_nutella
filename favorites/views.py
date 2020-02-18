@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+
 from products.models import Product
 from favorites.models import Favorite
 
 
 @login_required()
 def favorite_save(request):
+    """Sert à sauvegarder les produits enregistrées par les utilisateurs"""
     if request.method == "POST":
         substitute_code = int(request.POST.get("substitute-code"))
         product_code = int(request.POST.get("product-code"))
@@ -18,3 +20,11 @@ def favorite_save(request):
         return redirect("product_info", substitute_code)
 
     return redirect("home")
+
+@login_required
+def favorite_list(request):
+    """Sert à afficher les produits sauvegarder par les utilisateurs"""
+    favorites = Favorite.objects.filter(user=request.user)
+    return render(request, "favorites.html", {
+        "favorites":favorites
+    })
