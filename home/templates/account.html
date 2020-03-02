@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block header %}
+    <h2>A hoy</h2> 
+    {{ user.first_name }} <small>{{ user.username }}</small>!
+{% endblock %}
 
+{% block content %}
+    <p>Votre adresse email: {{ user.email }}</p>
 {% endblock %}

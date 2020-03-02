@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+
+<header class="product-header-page">
+    <img src="{% static 'img/photo_image_fond.jpg' %}" alt="image de fond pour favoris" class="product-image">
+    <h1>liste des favoris</h1>
+</header> 
+
+
+{% endblock %}
 
 {% block content %}
     <div class="favorite-result container">

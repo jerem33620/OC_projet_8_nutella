@@ -41,6 +41,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     <li class="nav-item">
+                        <form action="{% url 'research' %}" method="get" class="header-form">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <p><button type="submit">Rechercher</button></p>
+                        </form>
+                    </li>
+                    <li class="nav-item">
                     {% if user.is_authenticated %}
                         <a class="nav-link js-scroll-trigger" href="{% url 'signup' %}"><i class="fas fa-user"></i></a>
                     {% else %}
@@ -49,7 +56,7 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="{% url 'favorite_save' %}"><i class="fas fa-carrot"></i></a>
+                        <a class="nav-link js-scroll-trigger" href="{% url 'favorite_list' %}"><i class="fas fa-carrot"></i></a>
                     </li>
                     {% endif %}
                     <li class="nav-item">

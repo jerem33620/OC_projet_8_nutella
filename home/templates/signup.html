@@ -4,7 +4,7 @@
     <h2>s'enregistrer</h2>
     <form method="post">
         {% csrf_token %}
-        {% for field in form %}
+        {% for field in signup_form %}
             <p>
                 {{ field.label_tag }}<br>
                 {{ field }}

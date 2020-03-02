@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block header_content %}
+{% block header %}
 
-    <div class="container"> 
+<header class="product-head">
+    <img src="{% static 'img/photo_image_fond.jpg' %}" alt="image de fond" class="image-fond">
+    {% block header_content %}
+
+    <div class="header-container"> 
     <h1>Du gras oui, mais de qualité!</h1>
     <hr>
     <h2>Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
-    
 
-    <h2>Bienvenue, {{ user.get_full_name }} <small>{{ user.username }}</small>!</h2>
-    <p>Votre adresse email: {{ user.email }}</p>
-
-    <form action="{% url 'research' %}" method="get">
+    <form action="{% url 'research' %}" method="get" class="header-form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Envoyer</button>
+        <p><button type="submit">Envoyer</button></p>
     </form>
     
 
@@ -24,7 +24,12 @@
     {% endif %}
     </div>
 
+    {% endblock %}
+</header>
+
 {% endblock %}
+
+
 {% block content %}
 
     <!-- About Section -->

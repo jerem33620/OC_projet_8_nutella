@@ -3,7 +3,7 @@
 {% block header %}
 
 <header class="product-header-page">
-    <img src="{{ product.image_url }}" alt="product recherché" class="product-image">
+    <img src="{{ product.image_url }}" alt="product recherché" class="product-image" height="100">
     <h1>
     <a href="{{ product.url }}">{{ product.product_name }}</a>
     </h1>
@@ -20,8 +20,10 @@
         <div class="row">
 {% for substitute in substitutes %}
             <div class="col-md-4 result">
-                <img src="{{ substitute.image_url }}" width="100" height="100" class="result-image">
-                <div class="result-nutriscore">{{ substitute.nutrition_grade_fr }}</div>
+                <div class="result-image-nutriscore">
+                    <img src="{{ substitute.image_url }}" width="100" height="100" class="result-image">
+                    <div class="result-nutriscore result-nutriscore-{{ substitute.nutrition_grade_fr }}">{{ substitute.nutrition_grade_fr }}</div>
+                </div>
                 <a class="result-name" href="{% url 'product_info' substitute.code %}">{{ substitute.product_name }}</a>
                 {% if user.is_authenticated %}
                 <form class="result-form" method="post" action="{% url 'favorite_save' %}">
