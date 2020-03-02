@@ -21,7 +21,7 @@ def favorite_save(request):
 
     return redirect("home")
 
-@login_required
+@login_required()
 def favorite_list(request):
     """Sert à afficher les produits sauvegarder par les utilisateurs"""
     favorites = Favorite.objects.filter(user=request.user)
