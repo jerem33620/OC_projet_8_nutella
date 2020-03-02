@@ -39,12 +39,18 @@ def logout(request):
 
 def signup(request):
     """ Cette méthode sert à s'enregistrer """
+    form = SearchForm()
     if request.method == 'POST':
-        form = SignupForm(request.POST)
+        signup_form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save()
             auth.login(request, user)
             return redirect('home')
     else:
-        form = SignupForm()
-    return render(request, 'signup.html', {'form': form}) 
+        signup_form = SignupForm()
+    return render(request, 'signup.html', {'signup_form': signup_form, 'form': form })
+
+
+def accountlog(request):
+    """ Cette méthode sert à afficher le compte de l'utilisateur """
+    
