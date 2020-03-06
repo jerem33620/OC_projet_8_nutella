@@ -8,15 +8,18 @@ def research(request):
     """ Cette méthode sert à créer la requête en GET pour obtenir des substitues  """
     substitutes = []
     product = None
+    form = SearchForm()
     if request.method == "GET":
-        form = SearchForm(request.GET or None)
-        if form.is_valid():
-            substitutes, product = Product.objects.find_products(form)
-    return render(request, "research.html", {"substitutes": substitutes, "product": product})
+        research_form = SearchForm(request.GET or None)
+        if research_form.is_valid():
+            substitutes, product = Product.objects.find_products(research_form)
+            product.image_url = product.image_url.replace("400", "full")
+    return render(request, "research.html", {"substitutes": substitutes, "product": product, "form": form})
 
 def product_info(request, code):
+    form = SearchForm()
     product = Product.objects.get(code=code)
     product.image_url = product.image_url.replace("400", "full")
     return render(request, "product_info.html", {
-        "product": product,
+        "product": product, "form": form,
     })
