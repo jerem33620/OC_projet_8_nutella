@@ -13,6 +13,7 @@ class SearchForm(forms.Form):
     """ Cette class sert à montré le champd de recherche sur le site pour trouvé le produit demandé """
     
     product = forms.CharField(
+        label="", 
         max_length=100, 
         widget=forms.TextInput(attrs={'placeholder': "Champs de recherche"})
 )

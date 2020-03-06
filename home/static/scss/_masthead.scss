@@ -9,6 +9,10 @@ header.masthead {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+  background-image: url("../img/photo_image_fond.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
   h1 {
     font-size: 2.25rem;
   }

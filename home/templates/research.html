@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block header %}
 
-<header class="product-header-page">
-    <img src="{{ product.image_url }}" alt="product recherché" class="product-image" height="100">
-    <h1>
-    <a href="{{ product.url }}">{{ product.product_name }}</a>
-    </h1>
+<header class="product-head">
+    <img src="{{ product.image_url }}" alt="product recherché" class="product-image">
+    {% block header_content %}
+
+    <h1 class="product-head-title"><a  href="{{ product.url }}">{{ product.product_name }}</a></h1>
+
+    {% endblock %}
 </header> 
 
 {% endblock %}
 
 {% block content %}
-
-    
-
     <div class="product-result container">
         <p class="row"><h3>Vous pouvez remplacer cet aliment par:</h3></p>
         <div class="row">

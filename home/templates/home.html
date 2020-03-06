@@ -3,8 +3,7 @@
 
 {% block header %}
 
-<header class="product-head">
-    <img src="{% static 'img/photo_image_fond.jpg' %}" alt="image de fond" class="image-fond">
+<header class="masthead">
     {% block header_content %}
 
     <div class="header-container"> 
@@ -15,7 +14,7 @@
     <form action="{% url 'research' %}" method="get" class="header-form">
         {% csrf_token %}
         {{ form.as_p }}
-        <p><button type="submit">Envoyer</button></p>
+        <p><button type="submit">Rechercher</button></p>
     </form>
     
 
