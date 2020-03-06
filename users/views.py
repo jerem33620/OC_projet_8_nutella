@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.urls import reverse
 
+from products.models import Product, Category
 from home.forms import ConnexionForm, SearchForm, SignupForm
 from .models import User
 
@@ -49,7 +50,6 @@ def signup(request):
     else:
         signup_form = SignupForm()
     return render(request, 'signup.html', {'signup_form': signup_form, 'form': form })
-
 
 def accountlog(request):
     """ Cette méthode sert à afficher le compte de l'utilisateur """
