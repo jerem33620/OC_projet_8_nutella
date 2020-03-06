@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from products.models import Product
+from home.forms import SearchForm
+from products.models import Product, Category
 from favorites.models import Favorite
 
 
@@ -24,7 +25,8 @@ def favorite_save(request):
 @login_required()
 def favorite_list(request):
     """Sert à afficher les produits sauvegarder par les utilisateurs"""
+    form = SearchForm()
     favorites = Favorite.objects.filter(user=request.user)
     return render(request, "favorites.html", {
-        "favorites":favorites
+        "favorites":favorites, "form": form,
     })
