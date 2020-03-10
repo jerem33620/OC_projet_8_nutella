@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block header %}
+
+<header class="masthead" style="background-color: orange; background-image: none;">
+    {% block header_content %}
     <form method="post">
         {% csrf_token %}
         {% for field in signup_form %}
@@ -17,4 +20,7 @@
         {% endfor %}
         <button type="submit">s'enregistrer</button>
     </form>
+    {% endblock %}
+</header>
+
 {% endblock %}

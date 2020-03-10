@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block header %}
-    <h2>Connectez-vous à mon site</h2>
+
+<header class="masthead" style="background-image: none; background-color: #5c4d42;">
+    {% block header_content %}
     {% if form.errors %}
         <p style="color: red">Votre nom d’utilisateur et votre mot de passe ne correspondent pas. Veuillez réessayer.</p>
     {% endif %}
+    <h2>Connectez-vous à mon site</h2>
     <form method="post">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ next }}" />
@@ -23,4 +27,7 @@
         <button type="submit">Se connecter</button>
         <a href="{% url 'signup' %}">Nouveau sur le site? Inscrivez-vous</a>
     </form>
+    {% endblock %}
+</header>
+
 {% endblock %}
