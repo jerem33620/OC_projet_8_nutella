@@ -53,4 +53,8 @@ def signup(request):
 
 def accountlog(request):
     """ Cette méthode sert à afficher le compte de l'utilisateur """
-    
+    form = SearchForm()
+    account = User(request)
+    return render(request, "account.html", {
+        "account": account, "form": form,
+    })
