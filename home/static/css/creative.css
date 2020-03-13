@@ -9848,6 +9848,15 @@ header.product-head-favorite {
   padding: 25px;
 }
 
+.product-account-title {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  z-index: 1;
+  padding-top: 80px;
+}
+
 .header-container-favorite {
   color: white;
   height: 300px;
