@@ -7,6 +7,7 @@ from products.models import Product, Category
 from home.forms import ConnexionForm, SearchForm, SignupForm
 from .models import User
 
+
 def login(request):
     """ Cette fonction sert à se connecter sur le site """
     error = False

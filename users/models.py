@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from products.models import Product
 from django.conf import settings
+
+from products.models import Product
+
 
 class User(AbstractUser):
     """ Cette class sert à utiliser AbstractUser pour obtenir tous ce qu'il nous faut pour un utilisateur """
