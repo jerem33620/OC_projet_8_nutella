@@ -1,6 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
+
 from home import views
+
 
 class TestIndexPageTestCase(TestCase):
     def test_index_page(self):
