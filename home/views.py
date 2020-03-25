@@ -11,3 +11,6 @@ def home(request):
     return render(request, 'home.html', {
         "form":form
     })
+
+def legales_notices(request):
+    return render(request, "legales_notices.html")

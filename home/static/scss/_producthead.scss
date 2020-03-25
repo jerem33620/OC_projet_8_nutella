@@ -105,7 +105,7 @@ header.product-head-favorite {
     margin: auto;
     z-index: 1;
     background-color: rgba($color: #000000, $alpha: 0.5);
-    padding: 25px;
+    padding: 10px;
 }
 
 .product-account-title {
@@ -162,10 +162,20 @@ content.product-result {
 }
 
 footer {
-    display: flex;
-    flex: 1;
+    height: 100px;
 }
 
 body {
     min-height: 100vh;
+}
+
+.account-email {
+    color: white;
+    position: relative;
+    margin: auto;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    padding: 15px;
+    border-top: 20px;
+    text-align: center;
+    width: max-content;
 }

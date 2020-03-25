@@ -26,7 +26,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" class="d-flex flex-column">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
@@ -70,26 +70,30 @@
 
     {% block header %}
       <!-- Masthead -->
-        <header class="masthead">
+        <header class="masthead flex-shrink-0">
             {% block header_content %}
             {% endblock %}
         </header>
     {% endblock %}
 
-    <main>
+    <main class="flex-grow-1 flex-shrink-0">
         {% block content %}
         {% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer class="bg-light py-5">
+    <footer class="bg-light py-5 flex-shrink-0">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="small text-center text-muted">Copyright &copy; 2020 - Jérémy GUYOT</div>
+                <a class="nav-link" href="{% url 'legales_notices' %}">
+                    <button type="button" class="btn btn-link">Mentions légales</button>
+                </a>
+                <a class="nav-link" href="{% url 'home' %}#contact">
+                    <button type="button" class="btn btn-link">Contact</button>
+                </a>
             </div>
-            <div class="row">
-
-            </div>
+            
         </div>
     </footer>
 
