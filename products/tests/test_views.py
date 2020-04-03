@@ -16,7 +16,7 @@ class TestProductsPageTestCase(TestCase):
             name = "pâtes à tartiner",
         )
         product = Product.objects.create(
-            product_name = "Nutella",
+            product_name = "nutella-ferrero",
             code = 3017620429484,
             url = "https://fr.openfoodfacts.org/produit/3017620429484/nutella-ferrero",
             nutrition_grade_fr = "e",
