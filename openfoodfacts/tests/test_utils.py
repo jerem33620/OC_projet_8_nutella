@@ -35,3 +35,5 @@ class TestUtils(TestCase):
         util = get_json("category")
 
         self.assertEqual(len(util), 2)
+        
+        Mockget.return_value.status_code = 404
