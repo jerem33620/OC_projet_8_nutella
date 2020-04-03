@@ -9,7 +9,7 @@ verify_ssl = true
 django = "*"
 requests = "*"
 psycopg2-binary = "*"
-coverage = "==3.6"
+coverage = "*"
 
 [requires]
 python_version = "3.8"
