@@ -85,11 +85,11 @@
     <footer class="bg-light py-5 flex-shrink-0">
         <div class="container">
             <div class="row d-flex justify-content-center">
-                <div class="small text-center text-muted">Copyright &copy; 2020 - Jérémy GUYOT</div>
-                <a class="nav-link" href="{% url 'legales_notices' %}">
+                <a class="nav-link col-sm-2" href="{% url 'legales_notices' %}">
                     <button type="button" class="btn btn-link">Mentions légales</button>
                 </a>
-                <a class="nav-link" href="{% url 'home' %}#contact">
+                <div class="small text-center text-muted col-sm-9">Copyright &copy; 2020 - Jérémy GUYOT</div>
+                <a class="nav-link col-sm-1" href="{% url 'home' %}#contact">
                     <button type="button" class="btn btn-link">Contact</button>
                 </a>
             </div>
