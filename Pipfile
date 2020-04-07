@@ -4,16 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+selenium = "*"
+coverage = "*"
 
 [packages]
 requests = "*"
-psycopg2-binary = "*"
-coverage = "*"
-selenium = "*"
-heroku = "*"
 Django = "*"
 django-heroku = "*"
 gunicorn = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.7"
