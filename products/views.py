@@ -12,7 +12,7 @@ def research(request):
     if request.method == "GET":
         research_form = SearchForm(request.GET or None)
         if research_form.is_valid():
-            search_name = research_form.clean_data["product"]
+            search_name = research_form.cleaned_data["product"]
             substitutes, product = Product.objects.find_products(search_name)
             product.image_url = product.image_url.replace("400", "full")
     return render(request, "research.html", {"substitutes": substitutes, "product": product, "form": form})
