@@ -10,6 +10,7 @@ django = "*"
 requests = "*"
 psycopg2-binary = "*"
 coverage = "*"
+selenium = "*"
 
 [requires]
 python_version = "3.8"
