@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,23 +26,23 @@ SECRET_KEY = '^pt(p+)xv+9s9mnywpf3gkjn2^nkmwm&wi)@7$!dy0#pqlqpq)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["jeremy-p8.herokuapps.com", "localhost"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'favorites.apps.FavoritesConfig',
-    'users.apps.UsersConfig',
-    'products.apps.ProductsConfig',
-    'openfoodfacts.apps.OpenfoodfactsConfig',
-    'home.apps.HomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'favorites.apps.FavoritesConfig',
+    'users.apps.UsersConfig',
+    'products.apps.ProductsConfig',
+    'openfoodfacts.apps.OpenfoodfactsConfig',
+    'home.apps.HomeConfig',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +129,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 
 OPENFOODFACTS_CATEGORIES = [
     "fromages", 
@@ -153,4 +156,6 @@ MAX_RESULT = 6
 
 LOGIN_URL = "/users/login"
 
-STATIC_URL = "/home/static/"
+if os.environ.get("ENV")=="production":
+    DEBUG = False
+    django_heroku.settings(locals())

@@ -12,6 +12,8 @@ coverage = "*"
 selenium = "*"
 heroku = "*"
 Django = "*"
+django-heroku = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
