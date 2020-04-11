@@ -41,14 +41,14 @@ La startup Pur Beurre, avec laquelle vous avez déjà travaillé, souhaite déve
 Pour installer et faire fonctionner mon projet vous aurez besoin de certains packages et vous aurez besoin de clonner mon projet de github sur votre machine avec git:
 
 ```
-- git clone https://github.com/jerem33620/OC_projet_8_nutella
+- $ git clone https://github.com/jerem33620/OC_projet_8_nutella
 ```
 
 Puis, pour les packages:
 
 ```
-- python -m pip install pipenv
-- python -m pipenv install requests django django-heroku gunicorn selenium coverage
+- $ python -m pip install pipenv
+- $ python -m pipenv install requests django django-heroku gunicorn selenium coverage
 ```
 
 ## Tests:
@@ -71,7 +71,7 @@ ou sinon:
 Il faudra lancer 2 commandes et vous aurez le projet d'activé.
 
 ```
-- python -m pipenv shell
+- $ python -m pipenv shell
 
-- python manage.py runserver
+- $ python manage.py runserver
 ```
