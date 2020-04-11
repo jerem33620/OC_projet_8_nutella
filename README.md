@@ -35,3 +35,43 @@ La startup Pur Beurre, avec laquelle vous avez déjà travaillé, souhaite déve
 - Pushez votre code régulièrement sur Github et créez des PR quand vous souhaitez avoir le retour de votre mentor.
 - Votre code doit être intégralement écrit en anglais : fonctions, commentaires, …
 - Utilisez une méthodologie de projet agile pour travailler en mode projet.
+
+### Installer:
+
+Pour installer et faire fonctionner mon projet vous aurez besoin de certains packages et vous aurez besoin de clonner mon projet de github sur votre machine avec git:
+
+```
+- git clone https://github.com/jerem33620/OC_projet_8_nutella
+```
+
+Puis, pour les packages:
+
+```
+- python -m pip install pipenv
+- python -m pipenv install requests django django-heroku gunicorn selenium coverage
+```
+
+## Tests:
+
+Pour lancer votre tests vous devrez utiliser les lignes de code suivante:
+
+```
+- $ coverage run –source=’.’ manage.py test
+- $ coverage report
+```
+
+ou sinon:
+
+```
+- $ python manage.py test
+```
+
+### Activer votre projet en local:
+
+Il faudra lancer 2 commandes et vous aurez le projet d'activé.
+
+```
+- python -m pipenv shell
+
+- python manage.py runserver
+```
