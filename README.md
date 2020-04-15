@@ -48,7 +48,7 @@ Puis, pour les packages:
 
 ```
 - $ python -m pip install pipenv
-- $ python -m pipenv install requests django django-heroku gunicorn selenium coverage
+- $ python -m pipenv install --dev
 ```
 
 ## Tests:
