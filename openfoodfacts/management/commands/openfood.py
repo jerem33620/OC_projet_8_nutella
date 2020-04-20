@@ -13,7 +13,7 @@ class Command(BaseCommand):
     )
 
     def handle(self, *args, **options):
-        """ Cette méthode sert à appelé tous ce qu'il nous faudra pour la DB """
+        """ Cette fonction sert à appelé tous ce qu'il nous faudra pour la DB """
         self.codes=set()
         self.delete_all()
         for category in settings.OPENFOODFACTS_CATEGORIES:
@@ -34,11 +34,11 @@ class Command(BaseCommand):
             )  # 3. Sauvegarder les produits dans la base
 
     def save_category(self, category):
-        """ cette méthode sert à sauvegarder dans la DB les catégories """
+        """ cette fonction sert à sauvegarder dans la DB les catégories """
         return Category.objects.get_or_create(name=category.lower())
 
     def save_products_by_category(self, category, products):
-        """ Cette méthode sert à sauvegarder dans la DB les données vouluent:
+        """ Cette fonction sert à sauvegarder dans la DB les données vouluent:
             code/product_name/nutrition_grade_fr/url/image_url/image_nutrition_url
         """
         for product in products:
@@ -56,7 +56,7 @@ class Command(BaseCommand):
                 )
 
     def _is_valid(self, product):
-        """ Cette méthode sert à vérifier que toutes les infos nécessaires,
+        """ Cette fonction sert à vérifier que toutes les infos nécessaires,
             sont présentes dans le dictionnaire product.
         """
         keys = ("code", "product_name", "nutrition_grade_fr",
@@ -67,7 +67,7 @@ class Command(BaseCommand):
         return True
 
     def clean_products(self, products):
-        """ Cette méthode sert à supprimé et vérifier les produits """
+        """ Cette fonction sert à supprimé et vérifier les produits """
         cleaned_products = []
 
         for product in products:
@@ -77,6 +77,6 @@ class Command(BaseCommand):
         return cleaned_products
 
     def delete_all(self):
-        """ Cette méthode sert à supprimer les tables Product et Category """
+        """ Cette fonction sert à supprimer les tables Product et Category """
         Product.objects.all().delete()
         Category.objects.all().delete()

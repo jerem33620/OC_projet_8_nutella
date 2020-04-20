@@ -2,7 +2,7 @@ import requests
 
     
 def get_json(category):
-    """ Cette méthode produit la requête, 
+    """ Cette fonction produit la requête, 
         soumet une requête à la bibliothéque
         et retourne un json avec les valeurs rendues
     """
