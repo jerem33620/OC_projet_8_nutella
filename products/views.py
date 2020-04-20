@@ -5,7 +5,7 @@ from .models import Product, Category
 
 
 def research(request):
-    """ Cette méthode sert à créer la requête en GET pour obtenir des substitues  """
+    """ Cette fonction sert à créer la requête en GET pour obtenir des substitues  """
     substitutes = []
     product = None
     form = SearchForm()
