@@ -11,7 +11,7 @@ class ConnexionForm(forms.Form):
     password = forms.CharField(label="Mot de passe", widget=forms.PasswordInput, min_length=6, max_length=16)
 
 class SearchForm(forms.Form):
-    """ Cette class sert à montré le champd de recherche sur le site pour trouvé le produit demandé """
+    """ Cette class sert à montré le champs de recherche sur le site pour trouvé le produit demandé """
     
     product = forms.CharField(
         label="", 
