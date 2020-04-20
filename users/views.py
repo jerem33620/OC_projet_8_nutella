@@ -35,12 +35,12 @@ def login(request):
     return render(request, 'login.html', context)
 
 def logout(request):
-    """ Cette méthode sert à se déconnecter """
+    """ Cette fonction sert à se déconnecter """
     auth.logout(request)
     return redirect("home")
 
 def signup(request):
-    """ Cette méthode sert à s'enregistrer """
+    """ Cette fonction sert à s'enregistrer """
     form = SearchForm()
     if request.method == 'POST':
         signup_form = SignupForm(request.POST)
@@ -53,7 +53,7 @@ def signup(request):
     return render(request, 'signup.html', {'signup_form': signup_form, 'form': form })
 
 def accountlog(request):
-    """ Cette méthode sert à afficher le compte de l'utilisateur """
+    """ Cette fonction sert à afficher le compte de l'utilisateur """
     form = SearchForm()
     account = User(request)
     return render(request, "account.html", {
