@@ -51,6 +51,12 @@ Puis, pour les packages:
 - $ python -m pipenv install --dev
 ```
 
+Enfin pour rajouter les produits dans la DataBase:
+
+```
+- $ python manage.py openfood
+```
+
 ## Tests:
 
 Pour lancer votre tests vous devrez utiliser les lignes de code suivante:
